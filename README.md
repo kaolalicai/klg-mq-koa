@@ -14,7 +14,6 @@ rabbitmq 中间件 for koa，方便把异步接口快速接入 MQ。
 
 见 actual.puml
 
-
 ![](./images/actual.png)
 
 这种方式的好处的，只要服务B 对接 MQ ，而且原有服务 A B 直接的 http 连接方式不需要做任何修改
