@@ -1,10 +1,9 @@
 import {KoaRabbitmq} from './Rabbitmq'
 import * as Koa from 'koa'
-import * as bodyParser from 'koa-bodyparser'
 import {Context} from 'koa'
+import * as bodyParser from 'koa-bodyparser'
 import * as supertest from 'supertest'
 import {SuperTest, Test} from 'supertest'
-
 
 async function delay (time) {
   return new Promise(resolve => {
@@ -39,12 +38,12 @@ describe('Koa Rabbitmq test', async function () {
     done()
   })
 
-  it(' 流程测试 ', async () => {
-    await request.post('/').query(query).send({a: 23}).expect(200)
+  it(' 流程测试可以正常执行 ', async () => {
+    const res = await request.post('/').query(query).send({a: 23}).expect(200)
+    expect(res.text).toEqual('SUCCESS')
     await delay(300)
     expect(count).toEqual(1)
   })
-
 
   it(' 所有请求都被正确处理了 ', async () => {
     count = 0
@@ -56,5 +55,4 @@ describe('Koa Rabbitmq test', async function () {
     await delay(300)
     expect(count).toEqual(5)
   })
-
 })
