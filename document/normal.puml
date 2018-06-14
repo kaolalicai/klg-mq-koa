@@ -1,0 +1,8 @@
+@startuml
+
+服务A -> MQ: 发送消息
+MQ -> 服务A: 接受成功
+MQ --> 服务B: 拉取消息消费
+MQ <-- 服务B: ack 消费完成
+
+@enduml
