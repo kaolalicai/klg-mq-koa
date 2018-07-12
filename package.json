@@ -46,7 +46,7 @@
     "node": ">=8.9.0"
   },
   "dependencies": {
-    "klg-mq": "^1.0.0",
+    "klg-mq": "^1.1.0",
     "tracer": "^0.8.12"
   },
   "devDependencies": {
